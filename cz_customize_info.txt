@@ -1,0 +1,20 @@
+The commit "<type>: <description>" commit allows the following type elements to communicate their
+to the users of your library:
+
+fix: a commit of type "fix" patches a bug in your codebase
+(this is equivalent to PATCH in semantic versioning).
+
+feat: a commit of type "feat" introduces a new feature into the codebase
+(this is equivalent to MINOR in semantic versioning).
+
+changed: a commit of type "feat" introduces a change to existing functionality
+(this is equivalent to MAJOR in semantic versioning).
+
+deprecated: a commit of type "deprecated" announces soon-to-be removed features
+(this is equivalent to MINOR in semantic versioning).
+
+removed: a commit of the type "removed" indicates features that have now been removed.
+(this is equivalent to MAJOR in semantic versioning).
+
+security: a commit of type "security" can be used in case of vulnerabilities
+(this is equivalent to PATCH in semantic versioning).

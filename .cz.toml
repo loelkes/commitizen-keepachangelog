@@ -1,0 +1,39 @@
+[tool.commitizen]
+name = "cz_customize"
+tag_format = "$version"
+version_scheme = "semver"
+version = "1.0.0"
+update_changelog_on_bump = true
+template = "CHANGELOG.md.j2"
+use_shortcuts = true
+
+[tool.commitizen.customize]
+message_template = "{{change_type}}: {{message}}"
+example = "feat: enable custom configuration through config file"
+schema = "<type>: <body>"
+schema_pattern = "^(feat|changed|deprecated|removed|fix|security):(\\s.*)"
+bump_pattern = "^(feat|changed|deprecated|removed|fix|security):(\\s.*)"
+bump_map = {changed = "MAJOR", removed = "MAJOR", feat = "MINOR", deprecated = "MINOR", fix = "PATCH", security = "PATCH"}
+change_type_order = ["feat", "changed", "deprecated", "removed", "fix", "security"]
+info_path = "cz_customize_info.txt"
+commit_parser = "^(?P<change_type>feat|changed|deprecated|removed|fix|security):\\s(?P<message>.*)?"
+changelog_pattern = "^(feat|changed|deprecated|removed|fix|security)(!)?"
+change_type_map = {"feat" = "Added", "changed" = "Changed", "deprecated" = "Deprecated", "removed" = "Removed", "fix" = "Fixed", "security" = "Security"}
+
+[[tool.commitizen.customize.questions]]
+type = "list"
+name = "change_type"
+choices = [
+    {value = "feat", name = "Added: for new features", key = "a"},
+    {value = "changed", name = "Changed: for changes in existing functionality", key = "c"},
+    {value = "deprecated", name = "Deprecated: for soon-to-be removed features", key = "d"},
+    {value = "removed", name = "Removed: for now removed features", key = "r"},
+    {value = "fix", name = "Fixed: for any bug fixes and patches", key = "f"},
+    {value = "security", name = "Security: for vulnerabilities", key = "s"}
+]
+message = "Select the type of change you are committing"
+
+[[tool.commitizen.customize.questions]]
+type = "input"
+name = "message"
+message = "Please enter a commit message"
